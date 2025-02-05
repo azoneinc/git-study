@@ -1,46 +1,84 @@
-# Overview of the Git Kata Exercises
+# 学習用コンテンツ概要
 
-## Setup
+## 環境構築
 
-1. [configure-git](configure-git/README.md) - If git is not configured, some basic configuration steps
+1. [configure-git](configure-git/README.md) - 基本的な設定手順
 
-## Basic Git Katas in Suggested Order
+## 学習ロードマップ
 
-1. [basic-commits](basic-commits/README.md) - Very basic creation of commits.
-2. [basic-staging](basic-staging/README.md) - Interacting with the stage (index).
-3. [basic-branching](basic-branching/README.md) - The first stride into branching.
-4. [ff-merge](ff-merge/README.md) - A tour around the most trivial of merges.
-5. [3-way-merge](3-way-merge/README.md) - A basic merge, involving multiple diverged branches.
-6. [merge-conflict](merge-conflict/README.md) - A basic merge between diverging branches with incompatible (but simple) changesets.
-7. [merge-mergesort](merge-mergesort/README.md) - A merge conflict with actual code.
-8. [rebase-branch](rebase-branch/README.md) - Using rebase as an alternative to merging.
-9. [basic-revert](basic-revert/README.md) - Use revert to revert a change
-10. [reset](reset/README.md) - Reset is a powerful and slightly dangerous command if you do not know what you are doing. Go through the three modes of resetting here.
-11. [basic-cleaning](basic-cleaning/README.md) - Cleaning the workspace.
-12. [amend](amend/README.md) - Amending previous commits.
-13. [reorder-the-history](reorder-the-history/README.md) - We might have created our commits in a suboptimal order, practice to fix that scenario here.
-14. [squashing](squashing/README.md) - A lot of small commits is good when you are working locally, but for sharing your code, it might be more beneficial to deliver your code changes in large sets. Go here to experiment with that. Write a good commit
-15. [advanced-rebase-interactive](advanced-rebase-interactive/README.md) - Practice using the interactive rebase commands.
-16. [basic-stashing](basic-stashing/README.md) - The first stride into stashing.
-17. [ignore](ignore/README.md) - The basics of using the `.gitignore` file. And using `git rm`.
-18. [submodules](submodules/README.md) - Submodules are loathed by many. Run through this exercise to see what the ruckus is all about.
-19. [git-tag](git-tag//README.md) - Tags are convenient for keeping track of commits that bump a version number. In this exercise, you will list, add and delete tags.
+1. [basic-commits](basic-commits/README.md) - 基本的なコミットの作成
+2. [basic-staging](basic-staging/README.md) - ステージ（インデックス）との対話
+3. [basic-branching](basic-branching/README.md) - ブランチ作成への最初の一歩
+4. [ff-merge](ff-merge/README.md) - 単純なマージ
+5. [3-way-merge](3-way-merge/README.md) - 複数の分岐したブランチを含む基本的なマージ
+6. [merge-conflict](merge-conflict/README.md) - 分岐ブランチの基本的なマージ
+7. [merge-mergesort](merge-mergesort/README.md) - 実際のコードを用いたマージコンフリクト
+8. [rebase-branch](rebase-branch/README.md) - マージの代替手段としてリベースを使用
+9. [basic-revert](basic-revert/README.md) - 変更を取り消すためにリバートを使用
+10. [reset](reset/README.md) - リセットの 3 つのモードを確認してください
+11. [basic-cleaning](basic-cleaning/README.md) - ワークスペースのクリーンアップ
+12. [amend](amend/README.md) - 以前のコミットの修正
+13. [reorder-the-history](reorder-the-history/README.md) - コミットの順番が最適でなかった場合の修正
+14. [squashing](squashing/README.md) - コミットのまとめ方
+15. [advanced-rebase-interactive](advanced-rebase-interactive/README.md) - インタラクティブリベースコマンドの使用
+16. [Rebase using autosquash](./rebase-interactive-autosquash/README.md) - autosquash を利用したリベースコマンドの使用
+17. [basic-stashing](basic-stashing/README.md) - スタッシングへの最初の一歩
+18. [ignore](ignore/README.md) - `.gitignore`ファイルの基本的な使い方、および `git rm` の使用
+19. [submodules](submodules/README.md) - サブモジュールが非推奨な理由を知る
+20. [git-tag](git-tag//README.md) - タグの使用
 
-## Katas that solve standard problems
+## 課題
 
-1. [commit-on-wrong-branch](commit-on-wrong-branch/README.md) - If we accidentally put unpushed commits on the wrong branch, how do we effectively _move_ them to another branch before our work on that branch.
-2. [commit-on-wrong-branch-2](commit-on-wrong-branch-2/README.md) - Another exercise on what to do if you have accidentally committed on the wrong branch.
-3. [reverted-merge](reverted-merge/README.md) - We revert a merge, but, after fixes are added to the merged branch, we want the changes from merge and the new fixes.
-4. [save-my-commit](save-my-commit/README.md) - Should you accidentally or on purpose delete a commit, go here to try and save it. You will use the reflog.
-5. [detached-head](detached-head/README.md) - git complains that you are in a "You are in 'detached HEAD' state". What do you do?
+### [commit-on-wrong-branch](commit-on-wrong-branch/README.md)
 
-## Katas On Advanced features
+誤ってプッシュされていないコミットを誤ったブランチに入れてしまった場合、作業を開始する前にどのように別のブランチへ _移動_ させるか。
 
-1. [git-attributes](git-attributes/README.md) - .gitattributes file allows you to specify how git handles files, such as line endings in text files or how to diff a binary file.
-2. [Bad-commit](bad-commit/README.md) - Using `git bisect` to find a bad commit.
-3. [bisect](bisect/README.md) - Another kata using `git bisect`.
-4. [pre-push](pre-push/README.md) - A quick exercise in using Git hooks.
-5. [Investigation](investigation/README.md) - Discover what is going on in a Git repo, figure out what it looks like under the hood.
-6. [Objects](objects/README.md) - A small exercise into Git internals.
-7. [merge-driver](merge-driver/README.md) - Defining a custom merge driver.
-8. [rebase-exec](rebase-exec/README.md) - Run tests on every commit using `git rebase --exec`
+### [commit-on-wrong-branch-2](commit-on-wrong-branch-2/README.md)
+
+誤ったブランチに誤ってコミットしてしまった場合の対処法に関する演習。
+
+### [reverted-merge](reverted-merge/README.md)
+
+マージをリバートしましたがマージ先ブランチに修正が加えられた後、マージ時の変更と新しい修正の両方を反映させたい場合。
+
+### [save-my-commit](save-my-commit/README.md)
+
+誤ってコミットを削除してしまった場合これを救出する方法を試してみてください。reflog を使用します。
+
+### [detached-head](detached-head/README.md)
+
+Git は「detached HEAD」状態にあると警告します。どう対処しますか？
+
+## 発展課題
+
+### [git-attributes](git-attributes/README.md)
+
+.gitattributes ファイルを使用してテキストファイルの改行コードやバイナリファイルの差分表示方法など、Git がファイルをどのように扱うかを指定できます。
+
+### [Bad-commit](bad-commit/README.md)
+
+`git bisect`を使用して悪いコミットを見つける。
+
+### [bisect](bisect/README.md)
+
+`git bisect`を使用する別の演習。
+
+### [pre-push](pre-push/README.md)
+
+Git フックの使用に関する簡単な演習。
+
+### [Investigation](investigation/README.md)
+
+Git リポジトリ内で何が起こっているかを発見しその内部構造を把握する。
+
+### [Objects](objects/README.md)
+
+Git 内部構造に関する小さな演習。
+
+### [merge-driver](merge-driver/README.md)
+
+カスタムマージドライバーの定義。
+
+### [rebase-exec](rebase-exec/README.md)
+
+`git rebase --exec`を使用して各コミットでテストを実行。
