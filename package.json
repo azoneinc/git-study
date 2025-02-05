@@ -1,0 +1,24 @@
+{
+    "name": "git-study",
+    "version": "1.0.0",
+    "description": "git study contents for junior developer",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
+    "devDependencies": {
+        "textlint": "^14.4.2",
+        "textlint-rule-preset-ja-spacing": "^2.4.3",
+        "textlint-rule-preset-jtf-style": "^3.0.1"
+    },
+    "dependencies": {
+        "D": "^1.0.0",
+        "textlint-rule-preset-ja-technical-writing": "^12.0.2"
+    }
+}
