@@ -1,4 +1,7 @@
 {
-    "textlint.autoFixOnSave": true,
-    "textlint.languages": ["markdown"]
+  "textlint.autoFixOnSave": true,
+  "textlint.languages": ["markdown"],
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  }
 }
