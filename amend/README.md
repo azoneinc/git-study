@@ -1,25 +1,22 @@
-# Git kata: Amending commits
-When we are working, we make a lot of commits.
-Sometimes we just forget something obvious that we want to fix quickly.
+# Amending commits
 
-`git commit --amend` allows us to do that - tinker with the last commit we made.
+`git commit --amend` を使うと直前のコミットを修正できます。
+`git log -p` や `git show` を使って直前のコミットの内容を確認して必要な修正を加えましょう。
 
-You can use `git log -p` or `git show` to inspect the contents of commits and file changes that were added to the commits.
+## セットアップ
 
-## Setup:
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+## 課題
 
-## The task
+1. `git status` の内容を確認する
+2. `git log -p` の内容を確認する
+3. bar.txt の変更をステージする
+4. `git commit --amend` を実行する
+5. `git log -p` の内容を確認する
+6. もう一度 `git commit --amend` を実行するとどうなるか確認する
 
-1. What does `git status` tell us?
-2. What does `git log -p` tell us?
-3. Stage the addition of bar.txt
-4. Run `git commit --amend`
-5. What happened? What does `git log -p` tell us?
-6. What happens if you run `git commit --amend` again?
-
-## Useful commands
+## 便利なコマンド
 
 - `git add`
 - `git log --oneline --graph`

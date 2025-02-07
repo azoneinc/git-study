@@ -1,62 +1,60 @@
-# Git Kata: Basic Staging
+# Basic Staging
 
-This kata will examine the staging area of git.
+git のステージングエリアを検証する。git では 3 つの異なる領域で作業する。
 
-In git we are working with three different areas:
+* 変更している作業ディレクトリ
+* git add で追加したすべての変更が残るステージングエリア
+* すべてのコミットが蓄積され履歴となるリポジトリ
+  * ステージングされた変更をここに反映するには git commit コマンドを実行する
 
-* The working directory where you are making your changes
-* The staging area where all changes you have added through `git add` will stay
-* The repository where every commit ends up, making your history. To put your staged changes in here you issue the `git commit` command.
+ファイルは作業ディレクトリとステージングエリアの両方で差分を持つことができる。これらの差分が同一である必要はない。
 
-A file can have changes both in the working directory and staging area at the same time.
-These changes do not have to be the same.
+ファイルのステージングされた変更を復元するために git restore を使用し、ファイルを以前の状態に戻すため git checkout を使用する。
 
-We will also work with `git restore` to restore the staged changes of a file, and `git checkout` to return a file to a previous state.
+## セットアップ
 
-## Setup
+1 Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+## 課題
 
-## The task
+リポジトリで作業している　`file.txt` というファイルが存在する。
 
-You live in your own repository. There is a file called `file.txt`.
+1. file.txt の内容は何か
+2. file.txt の内容を上書きして作業ディレクトリ上の状態を変更する　`echo 2 > file.txt`（PowerShell の場合は `sc file.txt '2'`）
+3. git diff は何を示しているか
+4. git diff --staged は何を示しているか　なぜこれが空なのか
+5. 作業ディレクトリから変更をステージするために git add file.txt を実行する
+6. git diff は何を示しているか
+7. git diff --staged は何を示しているか
+8. file.txt の内容を上書きして作業ディレクトリ上の状態を変更する　`echo 3 > file.txt`（PowerShell の場合は `sc file.txt '3'`）
+9. git diff は何を示しているか
+10. git diff --staged は何を示しているか
+11. 何が起こっているか説明する
+12. git status を実行し　出力に file.txt が 2 回表示されることを確認する
+13. 変更のステージを解除するために git restore --staged file.txt を実行する
+14. 現在の git status は何を示しているか
+15. 変更をステージし commit を作成する
+16. ログはどのように表示されるか
+17. file.txt の内容を上書きする　`echo 4 > file.txt`（PowerShell の場合は `sc file.txt '4'`）
+18. file.txt の内容は何か
+19. git status は何を示しているか
+20. git restore file.txt を実行する
+21. file.txt の内容は何か
+22. git status は何を示しているか
 
-1. What's the content of `file.txt`?
-2. Overwrite the content in `file.txt`: `echo 2 > file.txt` to change the state of your file in the working directory (or `sc file.txt '2'` in PowerShell)
-3. What does `git diff` tell you?
-4. What does `git diff --staged` tell you? why is this blank?
-5. Run `git add file.txt` to stage your changes from the working directory.
-6. What does `git diff` tell you?
-7. What does `git diff --staged` tell you?
-8. Overwrite the content in `file.txt`: `echo 3 > file.txt` to change the state of your file in the working directory (or `sc file.txt '3'` in PowerShell).
-9. What does `git diff` tell you?
-10. What does `git diff --staged` tell you?
-11. Explain what is happening
-12. Run `git status` and observe that `file.txt` are present twice in the output.
-13. Run `git restore --staged file.txt` to unstage the change
-14. What does `git status` tell you now?
-15. Stage the change and make a commit
-16. What does the log look like?
-17. Overwrite the content in `file.txt`: `echo 4 > file.txt` (or `sc file.txt '4'` in PowerShell)
-18. What is the content of `file.txt`?
-19. What does `git status` tell us?
-20. Run `git restore file.txt`
-21. What is the content of `file.txt`?
-22. What does `git status` tell us?
+## 利用コマンド
 
-## Useful commands
-
-- `git add`
-- `git commit`
-- `git commit -m "My lazy short commit message"`
-- `git log`
-- `git log -n 5`
-- `git log --oneline`
-- `git log --oneline --graph`
-- `git restore --staged`
+* `git add`
+* `git commit`
+* `git commit -m "My lazy short commit message"`
+* `git log`
+* `git log -n 5`
+* `git log --oneline`
+* `git log --oneline --graph`
+* `git restore --staged`
 
 ## Aliases
 
-You can set up aliases as such:
+以下のようにエイリアスを設定できる。
+
 `git config --global alias.lol 'log --oneline --graph --all'`
-This might be useful to you.

@@ -1,34 +1,33 @@
-# Git Kata: Basic Commits
-This kata will introduce you to the `git add` and `git commit` commands.
+# Basic Commits
 
-This is a very introductory kata. if you have used `git status`, `git log --oneline --graph`, `git add` and `git commit` extensively you should probably skip it.
+`git add` と `git commit` コマンドを紹介します。もし `git status`、`git log --oneline --graph`、`git add`、`git commit` を十分に使用している場合はおそらくスキップしても良いでしょう。
+まだ基本的な Git の設定していない場合は、このファイルの下部を確認してください。
 
-You can look at the bottom of this file, if you have not yet done basic git configuration.
+## セットアップ
 
-## Setup:
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+## 課題
 
-## The task
+1. `git status` を使用して、現在どのブランチにいるか確認する
+2. `git log` はどのように表示されるか確認する
+3. ファイルを作成する
+4. 現在の `git status` の出力はどのようになっているか確認する
+5. ファイルをステージングエリアに `add` する
+6. 現在の `git status` はどのようになっているか確認する
+7. ファイルをリポジトリに `commit` する
+8. 現在の `git status` はどのようになっているか確認する
+9. 先ほど作成したファイルの内容を変更する
+10. 現在の `git status` はどのようになっているか確認する
+11. 変更されたファイルを `add` する
+12. 現在の `git status` はどのようになっているか確認する
+13. 再度ファイルを変更する
+14. `commit` を行う
+15. 現在の `status`と`log` はどのようになっているか確認する
+16. 最新の変更を add して commit する
 
-1. Use `git status` to see which branch you are on.
-2. What does `git log` look like?
-3. Create a file
-4. What does the output from `git status` look like now?
-5. `add` the file to the staging area
-6. How does `git status` look now?
-7. `commit` the file to the repository
-8. How does `git status` look now?
-9. Change the content of the file you created earlier
-10. What does `git status` look like now?
-11. `add` the file change
-12. What does `git status` look like now?
-13. Change the file again
-14. Make a `commit`
-15. What does the `status` look like now? The `log`?
-16. Add and commit the newest change
+## 利用コマンド
 
-## Useful commands
 - `git add`
 - `git commit`
 - `git commit -m "My commit message"`
@@ -36,22 +35,19 @@ You can look at the bottom of this file, if you have not yet done basic git conf
 - `git log -n 5`
 - `git log --oneline`
 - `git log --oneline --graph`
-- `touch filename` to create a file (or `sc filename ''` in PowerShell)
-- `echo content > file` to overwrite file with content (or `sc filename 'content'` in PowerShell)
-- `echo content >> file` to append file with content (or `ac filename 'content'` in PowerShell)
+- `touch filename` でファイルを作成（または PowerShell では `sc filename ''`）
+- `echo content > file` でファイルの内容を上書き（または PowerShell では `sc filename 'content'`）
+- `echo content >> file` でファイルに内容を追記（または PowerShell では `ac filename 'content'`）
 
+## Git 初期設定
 
-## Git Initial Configuration
 1. `git config --global user.name "John Doe"`
-1. `git config --global user.email "johndoe@example.com`
+2. `git config --global user.email "johndoe@example.com"`
 
-For the vim scared:
-- `git config --global core.editor nano`
+- vim が苦手な人
+  - `git config --global core.editor nano`
+  - `git config --global core.editor "code --wait"`
 
-For the windows peeps:
-- `git config --global core.editor notepad`
-
-Other editor options:
-- `git config --global core.editor "atom --wait"`
-- `git config --global core.editor "code --wait"`
-- `git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst"`
+- Windows の場合
+  - `git config --global core.editor notepad`
+  - `git config --global core.editor "code --wait"`

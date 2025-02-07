@@ -1,28 +1,31 @@
-# Git Kata: Basic revert
-## Setup:
+# Basic revert
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+## セットアップ
 
-## The task
+1. `source setup.sh` を実行する（または PowerShell では `.\setup.ps1` を実行する）
 
-In this task a few changes snuck in, that we'd like to get out. Our history is public, so we can't just change it. Rather we need to use revert to remove the unwanted changes in a safe way.
+## 課題
 
-1. Use `git log --oneline` to look at the history
-2.  Use `cat` to view the content of `greeting.txt`
-3.  Use `git revert` on the newest commit, to remove the changes the last commit added
-4.  Use `git log --oneline` to view the history
-5.  Did the revert command add or remove a commit?
-6.  Use `cat` to view the content of `greeting.txt`
-7.  Use `ls` to see the content of the workspace
-8.  Use `git log --oneline` to find the sha of the commit adding credentials to the repository
-9.  Use `git revert` to revert the commit that added the credentials
-10. Use `git log --oneline` to view the history
-11. Use `ls` to see the content of the workspace
-12. How many commits were added or changed by the last revert?
-13. Use `git show` with the sha of the commit you reverted to see that the credentials file is stilll in the history
-14. As you have now reverted the credentials file, so it is removed from your working directory, is it also removed from git?
+この課題ではいくつかのコミットを取り除く必要がある。PJ のルールでコミット済みの変更を修正して上書きすることは禁止されている。そのため revert を使用して不要な変更を安全に取り除く必要がある。
 
-## Useful commands
-- `git revert <ref>`
-- `git log --oneline`
-- `git show <ref>`
+1. `git log --oneline` を使用して履歴を確認する
+2. `cat` を使用して `greeting.txt` の内容を確認する
+3. 最新のコミットに対して `git revert` を使用し、最後のコミットで追加された変更を取り除く
+4. `git log --oneline` を使用して履歴を確認する
+5. revert コマンドは履歴に対してコミットを追加、もしくは削除したか確認する
+6. `cat` を使用して `greeting.txt` の内容を確認する
+7. `ls` を使用してワークスペースの内容を確認する
+8. `git log --oneline` を使用してリポジトリに認証情報を追加したコミットの sha を見つける
+9. 認証情報を追加したコミットを取り消すために `git revert` を使用する
+10. `git log --oneline` を使用して履歴を確認する
+11. `ls` を使用してワークスペースの内容を確認する
+12. 最後の revert によって追加または変更されたコミットはいくつあるか確認する
+13. `git show` を使用して取り消したコミットの sha で認証情報ファイルが履歴に残っていることを確認する
+14. revert によって認証情報ファイルは履歴から完全に削除された（リポジトリの履歴を遡っても認証情報を知ることができない）か確認する
+    1. revert はコミットを打ち消すコミットを作成する機能なので、`認証情報はワーキングディレクトリから削除されても履歴には残ってしまう`
+
+## 便利なコマンド
+
+- git revert <ref>
+- git log --oneline
+- git show <ref>

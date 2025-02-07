@@ -1,30 +1,29 @@
-# Git Kata: Merge Mergesort
-In this kata you will be facing your first merge conflict!
-There will be two different branches:
+# Merge Mergesort
+
+マージコンフリクトを解決する。以下の 2 つの異なるブランチが存在する。
 
 * Mergesort-Impl
 * master
 
-The task is to look at the merge conflict, and solve it by editing the file accordingly.
+マージコンフリクトを確認しファイルを適切に編集して解決する。
 
-## Setup:
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する（または PowerShell では `.\setup.ps1` を実行する）
 
-## The task
+## 課題
 
-1. Run `git branch` to see the two branches present
-2. Merge `Mergesort-Impl` into `master`
-3. Either:
-   1. Solve the merge conflict with your favorite editor and finish the merge (`git status` will tell you what to do), **or**
-   2. Use `git mergetool --tool=emerge` (for emacs fans) or `git mergetool --tool=vimdiff` (for vim fans) and finish the merge (`git status` will tell you what to do)
+1. `git branch` を実行して存在する 2 つのブランチを確認する
+2. `Mergesort-Impl` ブランチを `master` ブランチにマージする
+   1. コンフリクトの発生によりマージが完了しないことを確認する
+3. `git status`のメッセージに何をすべきか書いてあるので確認する
+4. `git mergetool --tool=vimdiff`または任意のエディタでマージコンフリクトを解決しマージを完了する
 
-## Relevant commands
-- `git branch`
-- `git merge`
-- `git status`
-- `git mergetool --tool=emerge`
-- `git mergetool --tool=vimdiff`
-- `git add`
-- `git commit`
+## 関連コマンド
 
+* `git branch`
+* `git merge`
+* `git status`
+* `git mergetool --tool=vimdiff`
+* `git add`
+* `git commit`

@@ -1,24 +1,22 @@
-# Git Kata: rebase branch
+# rebase branch
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する（または PowerShell では `.\setup.ps1` を実行する）
 
-## The task
+## 課題
 
-You again live in your own branch, this time we will be doing a bit of juggling with branches, to show how lightweight branches are in git.
+1. 存在するブランチを確認する
+2. master ブランチのログを確認する
+3. uppercase ブランチに切り替える
+4. ログが master ブランチのログとどのように異なるか確認する
+5. uppercase ブランチを master でリベースする (`git rebase master`)
+6. uppercase ブランチのログを確認する
+7. 次に master ブランチに切り替える
+8. uppercase ブランチを master ブランチにマージする
+9. 現在のログがどのようになっているか確認する
 
-1. Which branches exist?
-2. Look at the log for the master branch
-3. Switch to the uppercase branch
-4. How does the log compare to the log on the master branch?
-5. Rebase your uppercase branch with the master (`git rebase master`)
-6. What did just happen? Draw it!
-7. Now switch to the master branch
-8. Merge uppercase into master
-9. What does the log look like now?
-
-## Useful commands
+## 便利なコマンド
 
 - `git switch <branch-name>`
 - `git rebase <branch-name>`

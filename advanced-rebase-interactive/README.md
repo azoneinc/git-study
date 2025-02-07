@@ -1,32 +1,27 @@
-# gitkatas
-## Advanced interactive rebase
-You have worked on a new feature called Hello World.
-This features ends up being complete with both documentation and unit test, but there are a few problems.
-The history looks really messy, with lots of small half-finished steps, and there are things included that should never have been there.
+# Advanced interactive rebase
 
-You should fix this such that your `git log` looks great!
+新機能 Hello World を実装した。この機能はドキュメントと単体テストの両方が用意された状態になっているが問題点がいくつかある。履歴は未完成の状態のコミットが多く含まれており本来含まれるべきではないコミットが混ざっている。
 
-To do this we will use our good friend `git rebase --interactive`
+git log の見栄え良くなるように `git rebase --interactive` を使用して履歴を修正する。幸運なことに機能開始直前のリリースタグ `v0.0` が存在する。この課題は単一の操作やコマンドの実行という明確な回答があるわけではないので各自で理解しやすいログを想定して回答する必要がある。
 
-Luckily we have a release tag `v0.0` from just before we started the feature.
+## Setup
 
-As this is an advanced exercise, there are no specific steps to follow and no single solution.
-
-## Setup:
-
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1 Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
 ## Task
 
-1. Explore the repo and the history so you know what happened
-2. Use `git rebase --interactive v0.0` to let you edit the "recipe" for the entire feature development.
-3. Clean up the history such that it actually makes sense. Try to use as many of the rebase "features" (e.g. reword, squash, fixup, drop) as possible. You decide yourself if you want to rewrite the whole thing in one go, or apply a few changes first, then run a new `git rebase --interactive v0.0` to keep cleaning.
+1. ログを調査し何が起こったのか把握する
+2. `git rebase --interactive v0.0` を使用して機能開発全体のログを編集する
+3. 履歴を整理し実際に意味をなすようにする
+4. できるだけ多くの rebase の機能（例 `reword` `squash` `fixup` `drop`）を使用する
+5. 　全体を一度に書き換えるかいくつかの変更を適用して再度 `git rebase --interactive v0.0` を実行して繰り返し整理するかは自由に判断してよい
 
 ### useful commands
 
-- `ls -l`                 # list files
-- `tail -n +1 *`          # show content of all files
-- `git log --oneline`     # show history
-- `git log --stat`        # log which files changed
-- `git log --patch`       # log with diff
-- `git rebase -i <ref>`   # run the interactive rebase back to <ref>
+- `ls -l`
+- `tail -n +1 *`
+  - 現在のディレクトリ内の全てのファイルの先頭から最後までの内容を出力する
+- `git log --oneline`
+- `git log --stat`
+- `git log --patch`
+- `git rebase -i <ref>`

@@ -1,33 +1,30 @@
-# Git katas: Interactive rebase with --autosquash option
-You have worked on a new feature called Hello World.
-This features ends up being complete with both documentation and unit test, but there is a typo in the documentation.
+# Interactive rebase with --autosquash option
 
-You need to fix it and then rebase to have a beautiful history.
+新機能 Hello World を実装した。この機能はドキュメントと単体テストの両方が用意されているがドキュメントにタイプミスがある。これを修正し美しい履歴を得るために `rebase` する必要がある。
 
-Luckily we have a release tag `v0.0` from just before we started the feature.
+幸運なことに機能開始直前のリリースタグ `v0.0` が存在する。`git commit` と `git rebase` のオプションを使用すれば簡単に修正する方法がある。
 
-There is a way to easily fix it with advanced options for `git commit` and `git rebase`.
+## Setup
 
-## Setup:
-
-1. Run `. setup.sh` (or `.\setup.ps1` in PowerShell)
+1 Run `. setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
 ## Task
 
-1. Explore the repo and the history so you know when the documentation file was added.
-2. Fix `README.md` file and add it.
-3. Add your commit by using `git commit --fixup=<commit id to be fixed>`.
-4. Use `git rebase --autosquash --interactive v0.0` to view the rebase recipe automatically generated.
-5. Use `git log` to view your new beautiful history.
+1. リポジトリと履歴を調査しドキュメントファイルが追加されたタイミングを把握する
+2. `README.md` を修正しステージングする
+3. 修正するコミットの sha を指定して `git commit --fixup=<commit id to be fixed>` でコミットする
+4. `git rebase --autosquash --interactive v0.0` を使用して自動生成された rebase の編集画面を確認する
+   1. `git commit --fixup` で追加されたコミットが指定したコミットに fixup されるようコミットの順番が自動で変更されている
+5. `git log` を使用して履歴を確認する
 
 ### useful commands
 
-- `ls -l`                           # list files
-- `tail -n +1 *`                    # show content of all files
-- `git log --oneline`               # show history
-- `git log --stat`                  # log which files changed
-- `git log --patch`                 # log with diff
-- `git show <commit id>`            # show changes of a commit
-- `git add`                         # add file
-- `git commit --fixup=<commit id>`  # commit by autogenerating the message
-- `git rebase -i <ref>`             # run the interactive rebase back to <ref> and automaticaly reorder commits
+- `ls -l`
+- `tail -n +1 *`
+- `git log --oneline`
+- `git log --stat`
+- `git log --patch`
+- `git show <commit id>`
+- `git add`
+- `git commit --fixup=<commit id>`
+- `git rebase -i <ref>`

@@ -1,31 +1,29 @@
-# Git Kata: Fast-forward Merge
+# Fast-forward Merge
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する（PowerShell では `.\setup.ps1` を実行する）
 
-## The task
+## 課題
 
-You again live in your own branch, this time we will be doing a bit of juggling with branches, to show how lightweight branches are in git.
+1. `feature/uppercase` という (feature) ブランチを作成する
+2. このブランチに切り替える
+3. `git status` の出力は何か
+4. greeting.txt を編集して大文字の挨拶文にする
+5. greeting.txt ファイルをステージングエリアに追加してコミットする
+6. `git branch` の出力は何か
+7. `git log --oneline --graph --all` の出力は何か
+8. `master` ブランチに切り替える
+   1. feature ブランチにあるすべての変更を master ブランチに取り込みたい
+   2. コマンド 'git merge[branch name]' は引数として 1 つのブランチを取りそのブランチの変更を取得する
+   3. HEAD が指すブランチ（現在チェックアウトされているブランチ）が指定したブランチの変更を取り込むように更新される
+9. `cat` を使用して挨拶文の内容を確認する
+10. ブランチを比較する
+11. ブランチをマージする
+12. `cat` を使用して挨拶文の内容を確認する
+13. uppercase ブランチを削除する
 
-1. Create a (feature)branch called `feature/uppercase` (yes, `feature/uppercase` is a perfectly legal branch name, and a common convention).
-2. Switch to this branch
-3. What is the output of `git status`?
-4. Edit the greeting.txt to contain an uppercase greeting
-5. Add `greeting.txt` files to staging area and commit
-6. What is the output of `git branch`?
-7. What is the output of `git log --oneline --graph --all`
-
-   *Remember: You want to update the master branch so it also has all the changes currently on the feature branch. The command 'git merge [branch name]' takes one branch as argument from which it takes changes. The branch pointed to by HEAD (currently checked out branch) is then updated to also include these changes.*
-
-8. Switch to the `master` branch
-9. Use `cat` to see the contents of the greetings
-10. Diff the branches
-11. Merge the branches
-12. Use `cat` to see the contents of the greetings
-13. Delete the uppercase branch
-
-## Useful commands
+## 便利なコマンド
 
 - `git branch`
 - `git branch <branch-name>`

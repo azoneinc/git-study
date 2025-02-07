@@ -1,41 +1,39 @@
-# Git Kata: Basic stashing
+# Basic stashing
 
-## Setup:
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1 Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
-## The task
+## タスク
 
-You are working on your project. You've staged some work and have some unstaged work as well.
-Suddenly, you're made aware that a bug has made it to production. You'll stash your work, fix the bug and get back to your original work.
+ワーキングディレクトリにはステージ済みと未ステージの両方が存在する。本番環境でバグが発生したため、現在の変更を一時退避させてバグを修正する必要がある。バグの修正が完了次第元の作業内容を復元したい。
 
-1. Explore the repo
-   1. What work do you have in the working directory?
-   2. What work do you have staged ?
-   3. What does the commit log look like ?
-   >*Notice that file.txt has some staged changes (i.e. changes in the index) and unstaged changes (changes in the working directory)*
-2. Use `git stash` to stash your current work.
-   1. Now, what work do you have in the working directory?
-   2. What work do you have staged ?
-   3. What does the commit log look like ?
-   4. What does the stash list look like ?
-3. Fix the typos in bug.txt on master and commit your changes.
-4. Now to get back to your work, apply the stash to master.
-   1. What work do you have in the working directory?
-   2. What work do you have staged ?
-   >*Oops. All our changes are unstaged now. This may be undesirable and unexpected*
-5. Undo our changes with `git reset --hard HEAD`. This is an unsafe command as it will remove files from your index and working directory permanently, but we have our changes safely stashed so we're ok. Review the [reset](reset/README.md) kata if you're unsure of what happens here.
-6. Apply the stash to master with the `--index` option.
-   1. What work do you have in the working directory?
-   2. What work do you have staged ?
-   >*Ok, back to where we were!*
-7. We won't need the stash anymore. Drop it.
-   1. What does the stash list look like ?
-   2. What does the commit log look like ?
+1. リポジトリを調査する
+   1. ワーキングディレクトリの変更を確認する
+   2. ステージングエリアの変更を確認する
+   3. コミットログがどのように表示されるか確認する
+      1. file.txt はステージされた変更と未ステージの変更の両方を含んでいる
+2. `git stash` を使用して現在の作業内容を退避する
+   1. 現在のワーキングディレクトリの変更を確認する
+   2. ステージ環境の変更を確認する
+   3. コミットログを確認する
+   4. stash のリストを確認する
+3. master ブランチ上で bug.txt の誤字を修正し変更をコミットする
+4. 作業に戻るため `git stash apply` でスタッシュの変更を master に適用する
+   1. `git stash pop` は変更を適用後にスタッシュを削除するので注意
+   2. ワーキングディレクトリの変更を確認する
+   3. ステージ環境の変更を確認する
+      1. 全ての変更が未ステージになっている（本来はステージ状態も復元されてほしい）
+5. `git reset --hard HEAD` を使用して変更を取り消す  
+   1. ステージ環境とワーキングディレクトリから変更を完全に削除される（`reset` 自体のやり直しはできない）が変更は stash されているので問題ない
+6. `--index` オプション付きで stash を master に適用する
+   1. ワーキングディレクトリの変更を確認する
+   2. ステージ環境の変更を確認する
+7. stash は不要なので削除する
+   1. stash のリストを確認する
+   2. コミットログを確認する
 
-
-
-## Useful commands
+## 便利なコマンド
 
 - `git status`
 - `git status -s`

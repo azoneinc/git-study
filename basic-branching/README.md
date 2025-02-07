@@ -1,34 +1,34 @@
-# Git Kata: Basic Branching
+# Basic Branching
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する（PowerShell では `.\setup.ps1`）
 
-## The task
+## 課題
 
-You again live in your own branch, this time we will be doing a bit of juggling with branches, to show how lightweight branches are in git.
-Hint: `git switch` will make you switch from one branch to another.
+この度はブランチを少しいじって、git におけるブランチの軽量さを示す。
+`git switch` を使うとあるブランチから別のブランチへ切り替えることができる。
 
-1. Use `git branch` to see the two branches that are relevant for this exercise
-2. What branch are you on?
-3. Use `git branch mybranch` to create a new branch called _mybranch_
-4. Use `git branch` again to see the new branch created.
-5. Use `git switch mybranch` to switch to your new branch.
-6. How does the output from `git status` change when you switch between the _master_ and the new branch that you have created?
-7. How does the workspace change when you change between the two branches?
-8. Make sure you are on your _mybranch_ branch before you continue.
-9. Create a file called `file1.txt` with your name.
-10. `Add` the file and `commit` with this change.
-11. Use `git log --oneline --graph` to see your branch pointing to the new commit.
-12. Switch back to the branch called _master_.
-13. Use `git log --oneline --graph` and notice how the commit you made on the _mybranch_ branch is missing on the _master_ branch.
-14. Make a new file called `file2.txt` and commit that file.
-15. Use `git log --oneline --graph --all` to see your branch pointing to the new commit, and that the two branches now have different commits on them.
-16. Switch to your branch _mybranch_.
-17. What happened to your working directory? Can you see your `file2.txt`?
-18. Use `git diff mybranch master` to see the difference between the two branches.
+1. この演習に関連する 2 つのブランチを確認するために `git branch` を使用する
+2. 現在どのブランチにいるか
+3. 新しいブランチ _mybranch_ を作成するために `git branch mybranch` を使用する
+4. 新しく作成されたブランチを確認するためにもう一度 `git branch` を使用する
+5. 新しいブランチに切り替えるため `git switch mybranch` を使用する
+6. _master_ ブランチと新しく作成したブランチ間を切り替えたとき、`git status` の出力はどのように変化するか
+7. 2 つのブランチ間を切り替えたとき、ワークスペースはどのように変化するか
+8. 続行する前に、_mybranch_ ブランチ上にいることを確認する
+9. 自分の名前が書かれた `file1.txt` というファイルを作成する
+10. ファイルを追加してこの変更をコミットする
+11. 新しいコミットを指すブランチを確認するために `git log --oneline --graph` を使用する
+12. _master_ ブランチに戻る
+13. `git log --oneline --graph` を使用して _mybranch_ ブランチで行ったコミットが _master_ ブランチには存在しないことを確認
+14. `file2.txt` という新しいファイルを作成してそのファイルをコミットする
+15. `git log --oneline --graph --all` を使用して各ブランチが新しいコミットを指しており 2 つのブランチが異なるコミットを持っていることを確認する
+16. 自分のブランチ _mybranch_ に切り替える
+17. ワーキングディレクトリがどうなったか確認し `file2.txt` が存在しているか確認
+18. 2 つのブランチ間の違いを確認するために `git diff mybranch master` を使用する
 
-## Useful commands
+## 便利なコマンド
 
 - `git switch`
 - `git switch -c`

@@ -1,26 +1,21 @@
-# Git Kata: 3-Way Merge
+# 3-Way Merge
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する（または PowerShell では `.\setup.ps1` を実行する）
 
-## The task
+## 課題
 
-You again live in your own branch, this time we will be doing a bit of juggling with branches, to show how lightweight branches are in git.
+1. greeting というブランチを作成して切り替える
+1. greeting.txt を任意に編集するしてコミットする
+1. master ブランチに戻る
+1. README.md ファイルを新規作成し任意の内容でコミットする
+1. `git log --oneline --graph --all` の出力を確認する
+1. greeting ブランチを master ブランチにマージする
+1. `git log --oneline --graph --all` の出力を確認する
+1. `Merge branch 'greeting'`というメッセージで作成されたマージコミットが自動で作られていることを確認する
 
-1. Create a branch called greeting and switch to it
-2. Edit the greeting.txt to contain your favorite greeting
-3. Add greeting.txt files to the staging area
-4. Commit
-5. Switch back to the master branch
-6. Create a file README.md with information about this repository
-7. Add the README.md file to staging area and make the commit
-8. What is the output of `git log --oneline --graph --all`?
-9. Diff the branches
-10. Merge the greeting branch into master
-11. What is the output of `git log --oneline --graph --all` now? Observe the extra merge commit created with the message "Merge branch 'greeting'".
-
-## Useful commands
+## 便利なコマンド
 
 - `git branch`
 - `git branch <branch-name>`

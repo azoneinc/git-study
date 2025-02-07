@@ -1,21 +1,24 @@
-# Git Kata: Basic cleaning
+# Basic cleaning
 
-## Setup:
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-## The task
-You are working on a project that involves generated files.  Say you are compiling C files into object files. Before checking out a new branch you want to start clean
+## 課題
 
-1. Explore the directory with `ls -R`. There is a lot going on.  Code files, temp files, object files,..  Let's clean up!
-2. Just to be safe, do a dry run and execute the clean command with the ` -n` option
-3. Oh noes!  there's a `.c` file that would have been deleted!
-4. Add `src/mylib.c` to the staging area. don't commit it.
-5. Run the clean command with the ` -n` option. Notice that mylib.c will not be deleted. Also notice that the files in the obj directory are not listed
-6. Run the clean command with the ` -n -d ` option.
-7. Looks good! clean the repo ` -f -d `
+生成されたファイルが含まれるプロジェクトで作業している。例えば C ファイルをオブジェクトファイルにコンパイルしているとする。
+新しいブランチをチェックアウトする前にクリーンな状態から始めるために clean コマンドを利用する。
 
-## Useful commands
+1. `ls -R` を使ってディレクトリを探索する 多くのファイルがある コードファイル 一時ファイル オブジェクトファイルなど クリーンアップしよう
+2. 安全のために dry run を実行し `-n` オプション付きで clean コマンドを実行する
+3. なんと削除されるはずだった `.c` ファイルがある
+4. `src/mylib.c` をステージングエリアに追加するコミットはしない
+5. `-n` オプション付きで clean コマンドを実行する mylib.c が削除されないことに注意するまた obj ディレクトリ内のファイルがリストされないことにも注意する
+6. `-n -d` オプション付きで clean コマンドを実行する
+7. 問題なさそうなのでリポジトリを `-f -d` オプション付きでクリーンする
+
+## 便利なコマンド
+
 - `git clean -n`
 - `git add`
 - `git clean -n -d`

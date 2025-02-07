@@ -1,23 +1,20 @@
-# gitkatas
-## Kata 7: Reordering history
-The commits here have obviously been made by a mad man.
-Unfortunately they actually contain useful information - it's just that the history is weird.
-You should fix this such that our `git log` looks great!
+# Reordering history
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-## Task
+## 課題
 
-Reorder the history such that it actually makes sense - add the files in the order that matches their name.
+ `git log` でログを確認するとファイル名に対してコミット順序が無茶苦茶になってしまっている。
+`rebase`コマンドを用いてファイル名に沿った順番でコミットログを整理する。
 
-1. Use `git log --oneline --graph` to view the commits
-2. Also try `git reflog` to view the commits. `git reflog` defaults to `git reflog show` and this is an alias for `git log -g --abbrev-commit --pretty=oneline`
-3. Use `git rebase -i <after-this-commit>` to reorder the commits. There are commments in the file you edit that explain the commands available.
-4. Use `git log --oneline --graph` to view the result
+1. `git log --oneline --graph` を使用してログを確認する
+2. `git rebase -i <after-this-commit>` を使用してコミットの順序を変更する
+   1. 編集画面で使用可能なコマンドの説明がコメントとして記載されているので確認する
+3. `git log --oneline --graph` を使用して結果を確認する
 
-### useful commands
+### 便利なコマンド
 
 - `git rebase -i <after-this-commit>`
 - `git log --oneline --graph`
