@@ -1,28 +1,24 @@
-# Git Kata: Save my commit
+# Save my commit
 
-In this repository we had added the holy grail in `holygrail.txt`. Unfortunately, we reset our `master` branch to the initial commit. Now it is time to recover from the mistake.
+このリポジトリでは履歴の何処かで `holygrail.txt` を追加した。しかし誤って `master` ブランチを初期コミットに hard リセットしてしまった。どうにかして変更を復元する方法はないか。
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh` を実行する (PowerShell の場合は `.\setup.ps1`)
 
-## The task
+## タスク
 
-We just reset the `master` branch to the initial commit. We will recover the lost work.
+1. `git log` を使用して履歴が短いことを確認する
+2. `ls` を使用して `holygrail.txt` がワークスペースに存在しないことを確認する
+3. `git reflog` を使用して `holygrail.txt` を追加したコミットを見つける
+4. `git reset --hard` を使用して履歴と作業内容を回復する
+5. `git log` と `ls` を使用して回復した作業内容を確認する
+6. `git reset --hard initial-commit` を実行して解決策を取り消す
+7. `git cherry-pick` を使用して `holygrail.txt` を復元する
+8. reset を使用した解決策と履歴およびワークスペースを比較する
 
-1. Use `git log` to see that the history is brief
-2. Use `ls` to verify that `holygrail.txt` is not in the workspace
-3. Use `git reflog` to find the commit that added `holygrail.txt`
-4. Use `git reset --hard` to recover our history and work
-5. Use `git log` and `ls` to see the recovered work
-6. Undo your solution by running `git reset --hard initial-commit`
-7. Use `git cherry-pick` to restore `holygrail.txt`
-8. Compare history and workspace to the solution using reset
-9. Again, undo your solution using `git reset --hard initial-commit` 
-10. Force the Git garbage collector to run with `git gc`
-11. Try to restore the holy grail using one of the previous solutions
+## 関連 Git コマンド
 
-## Relevant git commands
 - `git reflog`
 - `git cherry-pick`
 - `git reset --hard`

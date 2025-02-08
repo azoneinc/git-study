@@ -1,21 +1,14 @@
-# gitkatas
+# Commit on wrong branch
 
-## Setup
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-## Kata 5: Commit on wrong branch
+## 課題説明
 
-This kata was shameless ripped off from [Git Katas](http://blog.schauderhaft.de/gitkata/)
+あなたは master ブランチで作業している。作業内容をコミットした直後に緊急の対応が入ってしまった。現在の HEAD ではリリースできない状態なので 1 つ前のコミットから `quickfix` という新しいブランチを作成する。
 
-You are working really hard on the master branch.
-Part of your work is already committed. This is when your boss comes in with an urgent request.
-
-Since your current HEAD is not ready for prime time you backup one commit, and start a new branch named 'quickfix'. You do whatever your boss wants and commit the changes to that new branch.
-
-That's when you realize you created a minor mess with your branches.
-
-Currently your commits look like this
+緊急対応の変更を新しいブランチにコミットした結果、履歴が少し複雑になってしまった。現在のコミット履歴は以下の通り。
 
 ```text
          master
@@ -29,7 +22,7 @@ remote     ^
         quickfix
 ```
 
-But you want it to look like this:
+本来望ましい履歴は以下の通り。
 
 ```text
          remote
@@ -41,21 +34,25 @@ But you want it to look like this:
                   HEAD
 ```
 
-Git ahead!
+このリポジトリは master ブランチを push することで自動リリースされるよう設定されていることとする。`master ブランチとして` C のコミットを push し、かつ B のブランチが master の HEAD となるように履歴を修正しなさい。
 
-Note: since the `B` in the current and in the target structure don't have the same parent they can't be literally the same commit.
+### 注意
 
-## The task
+この演習の環境設定では push ができないので上記の履歴通りになっていれば OK とする。
 
-1. Use `git log --oneline --graph --all` to view all the branches and their commits.
-2. Copy `C` onto `master` before `B` by rebasing `quickfix` on `master`.
-3. Make a new branch (`changes-including-B`) off of our `master` so we can keep working on `B`.
-4. Reset `master` back to `C`.
-5. Delete the `quickfix` branch.
-6. Push `master`. You can't do this in the training exercise.
-7. You can merge the `changes-including-B` branch to `master` and delete `changes-including-B` or just switch to `changes-including-B` and work there.
+## タスク
 
-## Useful commands
+1. `git log --oneline --graph --all` を使用してすべてのブランチとそのコミットを確認する
+2. `quickfix` を master にリベースして master ブランチ上で `B` の前に `C` を配置する
+3. master から新しいブランチ (`temp`) を作成して B 上での作業を継続できるようにする
+   1. リリースのために master ブランチで `C` を push したい
+   2. しかし `B` から `C` へ `reset --hard` すると `B` のコミットが消えてしまうので `temp` が必要
+4. master を `C` にリセットする
+5. `quickfix` ブランチを削除する
+6. master を push する（演習では実際に実行できないのでした体でよい）
+7. `temp` ブランチを master にマージ（ff-merge となる）して `temp` を削除する
+
+## 便利なコマンド
 
 - `git log --oneline --graph --all`
 - `git switch <branch-name>`

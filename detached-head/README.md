@@ -1,24 +1,24 @@
 # Detached head state
 
-When a user ends up in a "detached head" state, this is a scary situation, but as we know, Git is not scary.
+ユーザーが "detached head" 状態になると恐ろしい状況に見えるが Git は恐ろしくない
 
-## Setup:
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1. Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
-## The task
+## タスク
 
-1. Run `git status` and `git log --oneline --graph --all` to see what is going on.
-2. Restore normalcy in this repository by moving to `master`
+1. `git status` と `git log --oneline --graph --all` を実行して状況を確認する
+2. `master` に移動してこのリポジトリの通常状態を回復する
 
-Note that this task might seem more confusing if you did not run `setup.sh` in your terminal.
+※ ターミナルで `setup.sh` を実行していない場合、このタスクはより混乱するかもしれない。
 
-We want to have a branch called `the-beginning` that is made from the first commit with message `A`. 
+最初のコミットのメッセージが `A` であるものから作成された `the-beginning` というブランチを作成したい。
 
-3. Can you do this by first causing a detached head?
+3. まず detached head 状態を発生させることでこれを実現できるか
 
-## Useful commands
+## 便利なコマンド
 
 - `git status`
 - `git log --oneline --graph --all`
-- `git checkout <ref>` or `git switch --detach <ref>`
+- `git checkout <ref>` または `git switch --detach <ref>`

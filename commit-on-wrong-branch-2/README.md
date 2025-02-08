@@ -1,26 +1,50 @@
-# Git kata: Commit on wrong branch II
+# Commit on wrong branch II
 
-## The Story
+## 課題説明
 
-You develop a new feature on the branch `new-feature`. You have already
-implemented the first part of a feature, when you are notified of a critical
-bug that has to be fixed right away on the `master` branch.
+あなたは `new-feature` ブランチで新機能を開発している。既に機能の一部が実装できたところで `master` ブランチに重大なバグが発生し緊急で対応した。バグ修正後に新機能の開発を続ける。
 
-After the bug fix, you continue to work on the new feature. After you committed
-the second part of the feature, you realize that you have done your commit on
-the `master` branch instead of the feature branch.
+更に機能を追加しコミットした後、そのコミットが `new-feature` ブランチではなく `master` ブランチにコミットされていることに気づいた。
 
-## Setup:
+以下の内容を満たすコミットログに修正せよ。
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+- 誤って `master` にコミットした内容を `new-feature` に取り込む
+- master から機能追加のコミットを取り除く
+- `new-feature` へ `master` に適用したバグ修正のコミットを取り込む
 
-## The task
+## セットアップ
 
-1. Move the faulty commit from the `master` branch to the `new-feature` branch.
-2. How would you also bring the bugfix to your feature branch?
+1. Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
-## Useful Commands
+## タスク
 
-* `git reset HEAD~1` to move the current branch one step back. This has the consequence of _removing_ the newest commit from a branch
-* `git stash` to temporarily save your changes so that you can switch branches
-* `git cherry-pick` to add changeset from commit on current branch
+### 差分を stash する方法
+
+1. `git reset HEAD~1` で現在のコミット内容を維持したまま 1 つ前の履歴（`Fix bug` というコメントのコミット）に戻る
+2. `git stash` でコミットされていない変更点をスタッシュする
+   1. これでバグ修正後の追加機能の開発内容をスタッシュとして分離できた
+3. `new-feature` に移動する
+4. スタッシュを適用しコミットする
+   1. スタッシュ適用時にコンフリクトが発生するので手動または `git mergetool` で解決する
+5. `master` のバグ修正のコミットを `git cherry-pick` で取り込む
+   1. master を new-feature にリベースするのでもよい
+
+### cherry-pick で取り込む方法
+
+1. `new-feature` に移動する
+2. `git cherry-pick` で `master` に誤ってコミットされた追加機能のコミットを取り込む
+   1. コンフリクトが発生するので手動または `git mergetool` で解決し `git add .`→`git cherry-pick --continue` する必要がある
+3. `master` に移動し `git reset --hard HEAD~` で追加機能のコミットを削除する
+4. `new-feature` に移動する
+5. `master` のバグ修正のコミットを `git cherry-pick` で取り込む
+   1. master を new-feature にリベースするのでもよい
+
+## 便利なコマンド
+
+- `git reset HEAD~1`
+  - 現在のブランチを 1 つ前に戻す
+  - これにより最新のコミットがブランチから削除される
+- `git stash`
+  - ブランチを切り替えられるよう一時的に変更内容を保存する
+- `git cherry-pick`
+  - 現在のブランチ上のコミットから変更セットを追加する

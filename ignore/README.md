@@ -1,48 +1,40 @@
-# Git Kata: Basic Ignore
-We'll work a bit with the `.gitignore` file in this kata.
-In this file you can specify both file extensions and folder structures that you do not want Git to track.
-You can still `git add` files and folder that are ignored in the `.gitignore` file.
+# Basic Ignore
 
-We will also work with `git rm`, which is the Git remove command. `git rm` does just the same as removing a file from your working directory, and then staging that change by issuing a `git add filename` on the file that was just deleted.
-Sometimes you add a file by accident that was not meant for Git e.g. binary files, class files etc.
+`.gitignore` は追跡させたくないファイルの拡張子やフォルダ構造を指定できる。ちなみに `.gitignore` によって無視されたファイルやフォルダでも `git add -f` で強制的にステージすることは可能。
 
-If you want to signal to Git that a file needs to be removed from git, but still want it in your working directory, then use `git rm --cached` to issue a remove command on the staging area, but not in your working directory.
+`git rm` はワーキングディレクトリからファイルを削除しその削除をステージする。
+ファイルをリポジトリから削除する必要があるがワーキングディレクトリには残しておきたい場合、`git rm --cached` を使用してステージングエリアからのみ削除できる。
 
+## セットアップ
 
-## Setup:
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+## 課題
 
-## The task
+1. `foo.s` という名前のファイルを作成する
+2. `git status` の出力を確認する
+3. ワーキングディレクトリに `*.s` を含む `.gitignore` ファイルを作成する
+4. `git status` の出力を確認する
+5. `.gitignore` ファイルをコミットする
+6. `file1.txt` をコミットする
+7. `.gitignore` ファイルに `*.txt` を含む行を追加して `txt` ファイルを無視対象にする
+8. `git status` の出力を確認する
+9. `file1.txt` を変更する
+10. `git status` の出力を確認する
+    1. `.gitignore` に `*.txt` が記載されているのに `file1.txt` が追跡対象になっていることを確認する
+    2. `.gitignore` はまだ追跡されていないファイルを無視するための設定
+11. リポジトリ内にもう 1 つのテキストファイル `file2.txt` を作成する現在の `git status` の出力を確認する
+    1. `file2.txt`が追跡対象になっていないことを確認する
+12. `git rm --cached` コマンドで `file1.txt` の削除をステージする
+13. `git status` の出力を確認する
+14. `file3.txt` というファイルを作成し `.gitignore` に `!file3.txt` という行を追加する
+15. `git status` の出力を確認する
+    1. 拡張子が無視されているにも関わらず`file3.txt`が追跡されていることを確認する
 
-1. Create a file with the name `foo.s`
-2. What is the output of `git status`?
-3. Create a `.gitignore` file in your working directory containing `*.s`
-4. What is the output of `git status`?
-5. Commit the `.gitignore` file
-6. Commit `file1.txt`
-7. Add `txt` files to `.gitignore` by adding a line in the file containing `*.txt`
-8. What does `git status` tell us?
-9. Change `file1.txt`
-10. What does `git status` tell us? Why was the file tracked even though the `txt` extension is in the ignore file?
-11. Make another text file `file2.txt` in the repository, what does `git status` look like now? Why is it not tracked?
-12. Stage the removal of `file1.txt` with the command `git rm --cached`
-13. What does `git status` say?
-14. Create a new file called `file3.txt` and add the line `!file3.txt` to `.gitignore`. (See _note_ below)
-15. What does `git status` say? Can you think of a use-case for keeping track of a file although the extension is ignored?
+## 便利なコマンド
 
-## Note
-If you are using `zsh` instead of `bash`(default on Mac and some Linux') then `echo "!file3.txt" >> .gitignore` will fail because of shell expansion. Either use an editor to modify the file or escape the `!` e.g. `echo "\!file3.txt" >> .gitignore`
-
-## Useful commands
 - `git rm`
 - `git add`
 - `git commit`
 - `git commit -m`
 - `git rm --cached`
-
-
-## Aliases
-You can set up aliases as such:
-`git config --global alias.lol 'log --oneline --graph --all'`
-This might be useful to you.

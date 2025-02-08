@@ -1,70 +1,59 @@
 # Squash commits
 
-In this kata I would like to clean up my history a bit.
+最新の 5 つのコミットはすべて file.txt に対する変更です。これらのコミットを 1 つのコミットにまとめたい。
+ついでに file.txt 内の `\n` 文字を履歴から削除してしまいたい。
 
-The five newest commits all tinker with file.txt which obviously contains my feature.
+## セットアップ
 
-I would like these commits to be squashed into a single commit!
+1. `source setup.sh`（または PowerShell の場合は `.\setup.ps1`）を実行する
 
-While you are at it I would really like the ugly `\n` characters inside `file.txt` to be removed from the history.
+## タスク
 
-## Setup
+1. `git rebase -i <ref>` でまとめたいコミットが含まれるようコミットハッシュを指定する
+   1. 5 つのコミットをまとめたコミットメッセージを作成する（[推奨事項](#コミットメッセージの推奨事項)を参照）
+2. rebase の指定画面のコメントを読みまとめたいコミットに squash を指定してコミットをまとめる
+3. `git log` の内容を確認する
+4. コミット履歴に追加せず file.txt 内の `\n` 文字を削除する
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
-
-## The task
-
-1. _Squash_ the five relevant commits into one and make a good commit message (see Further information).
-2. How does `git log` look now?
-3. Clean up the `\n` characters inside `file.txt` without adding to the commit history.
-
-## Useful commands
+## 便利なコマンド
 
 - `git rebase -i <ref>`
 - `git add`
 - `git commit --amend`
 
-## Further information
+## コミットメッセージの推奨事項
 
-### The seven rules of a great Git commit message
+[How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) より。ただし英語前提の内容なので参考程度。
 
-From [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+1. 件名と本文は空行で分ける
+2. 件名は 50 文字以内にする
+3. 件名は大文字で始める
+4. 件名の末尾にピリオドを付けない
+5. 件名は命令形を使う
+6. 本文は 72 文字で折り返す
+7. 本文では「どのように」ではなく「何を」「なぜ」行ったのかを説明する
 
-1. Separate subject from body with a blank line
-2. Limit the subject line to 50 characters
-3. Capitalize the subject line
-4. Do not end the subject line with a period
-5. Use the imperative mood in the subject line
-6. Wrap the body at 72 characters
-7. Use the body to explain what and why vs. how
+### 例
 
-Example
-```
-Summarize changes in around 50 characters or less
+```sh
+50文字以内で変更内容を要約する
 
-More detailed explanatory text, if necessary. Wrap it to about 72
-characters or so. In some contexts, the first line is treated as the
-subject of the commit and the rest of the text as the body. The
-blank line separating the summary from the body is critical (unless
-you omit the body entirely); various tools like `log`, `shortlog`
-and `rebase` can get confused if you run the two together.
+必要に応じてさらに詳細な説明文を追加する。本文は約72文字で折り返す  。
+状況によっては最初の行がコミットの件名として扱われ残りが本文として扱われる。
+件名と本文を分ける空行は非常に重要である。（本文を全く記述しない場合を除く）
 
-Explain the problem that this commit is solving. Focus on why you
-are making this change as opposed to how (the code explains that).
-Are there side effects or other unintuitive consequences of this
-change? Here's the place to explain them.
+このコミットが解決する問題点を説明する。
+どのようにではなくなぜこの変更を行うのかに焦点を当てる。
+副作用や他の予期しない影響がある場合はそれも説明する。
 
-Further paragraphs come after blank lines.
+段落は空行で区切る
 
- - Bullet points are okay, too
+- 箇条書きも可能である
+- 箇条書きにはハイフンまたはアスタリスクが使用され先頭に1つのスペースを置き空行で区切る
+- 箇条書きのフォーマットはあくまで慣例なのでPJのルール次第ではある
 
- - Typically a hyphen or asterisk is used for the bullet, preceded
-   by a single space, with blank lines in between, but conventions
-   vary here
+課題管理ツールを使用している場合は以下のように下部に参照を記載する。
 
-If you use an issue tracker, put references to them at the bottom,
-like this:
-
-Resolves: #123
+Resolves: #123  
 See also: #456, #789
 ```

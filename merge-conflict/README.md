@@ -1,22 +1,21 @@
-# Git Kata: Merge Conflict
+# Merge Conflict
 
-## Setup:
+## セットアップ
 
-1. Run `source setup.sh` (or `.\setup.ps1` in PowerShell)
+1 Run `source setup.sh`（PowerShell の場合は `.\setup.ps1`）
 
-## The task
+## 課題
 
-In this kata git cannot figure out how to merge the content added on `merge-conflict-branch1` with the content on `master`.
+`merge-conflict-branch1` で追加された内容と `master` の内容がコンフリクトしているため手動でのマージが必要。完了時には両方の変更が `master` に含まれている必要がある。
 
-Both changes need to be in master when you're done.
+1. `git merge` を使用して `merge-conflict-branch1` の変更を master に取り込む
+2. 現在の `git status` の内容を確認する
+3. 任意のエディタでコンフリクトを解消する
+4. `git status` で表示される内容を確認し内容に従ってマージを完了する
+5. `git log --oneline --graph` の内容を確認する
 
-1. Use `git merge` to bring the changes from `merge-conflict-branch1` on to `master`.
-2. What does `git status` now report.
-3. Fix the conflict with your favorite editor.
-4. Follow the instructions in `git status` to complete the merge.
-5. What does `git log --oneline --graph` show?
+## 利用コマンド
 
-## Relevant commands
 - `git merge`
 - `git status`
 - `git add`
