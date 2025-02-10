@@ -1,6 +1,31 @@
-# Git 学習用コンテンツ
+# Git 中級編
 
-## 環境構築
+Git の概念、基本操作を理解している人を対象としています。（commit、fetch、pull、push ができるくらい）未経験や基本的な操作が不安な方は以下の初級用のコンテンツか Udemy などで基本を理解してから取り組んだ方が良いかもしれません。
+
+* [サル先生の Git 入門](https://backlog.com/ja/git-tutorial/intro/01/)
+  * 入門編と発展編を取り組んでください
+
+## 注意
+
+本講座では Git がもつ本来の機能や操作を理解し実践できるようになることを目的としています。 `SourceTree`や`Fork`などの Git クライアントツールを使用せずコマンドラインで取り組んでください。（後半の課題はコマンドを利用することでしか解決できない問題が多く含まれています）
+
+## 座学
+
+以下の書籍を参考に`自身でコマンドラインから操作`することで手を動かして学習してください。
+
+* [Pro Git book](https://git-scm.com/book/ja/v2)
+  * 1〜3 章
+    * 全て対象
+  * 4 章
+    * 操作は必要ないが理解は必要
+  * 7 章
+    * 7.11〜14 以外全て対象（7.11〜14 も学ぶ価値はある）
+
+## 課題
+
+[Easy](#easy)と[Middle](#middle)まで完了して本講座を修了とします。[Advance](#advance)に関しては余力があれば取り組んでください。
+
+### 課題の環境構築方法
 
 ![クイックスタート](/images/quickstart.gif)
 
@@ -9,49 +34,53 @@
 3. `setup.sh` スクリプトを実行する
 4. `exercise` ディレクトリへ移動して演習を始める
 
-## 概要
+### Easy
 
-`basic` から始まる演習は初心者向けでそれ以外の演習の難易度は高めです。
-
-## 学習ロードマップ
+非常に簡単なものも含まれているので課題を読んで必要ないと思ったものは飛ばしても構いません。
 
 1. [basic-commits](basic-commits/README.md) - 基本的なコミットの作成
-1. [basic-staging](basic-staging/README.md) - ステージ（インデックス）との対話
-1. [basic-branching](basic-branching/README.md) - ブランチ作成への最初の一歩
-1. [ff-merge](ff-merge/README.md) - 単純なマージ
-1. [3-way-merge](3-way-merge/README.md) - 複数の分岐したブランチを含む基本的なマージ
-1. [merge-conflict](merge-conflict/README.md) - 分岐ブランチの基本的なマージ
-1. [merge-mergesort](merge-mergesort/README.md) - 実際のコードを用いたマージコンフリクト
-1. [rebase-branch](rebase-branch/README.md) - マージの代替手段としてリベースを使用
-1. [basic-revert](basic-revert/README.md) - 変更を取り消すためにリバートを使用
-1. [reset](reset/README.md) - リセットの 3 つのモードを確認してください
-1. [amend](amend/README.md) - 以前のコミットの修正
-1. [reorder-the-history](reorder-the-history/README.md) - コミットの順番が最適でなかった場合の修正
-1. [squashing](squashing/README.md) - コミットのまとめ方
-1. [Rebase using autosquash](./rebase-interactive-autosquash/README.md) - autosquash を利用したリベースコマンドの使用
-1. [basic-stashing](basic-stashing/README.md) - スタッシングへの最初の一歩
-1. [ignore](ignore/README.md) - `.gitignore`ファイルの基本的な使い方および `git rm` の使用
-1. [git-tag](git-tag//README.md) - タグの使用
+2. [basic-staging](basic-staging/README.md) - ステージ（インデックス）との対話
+3. [basic-branching](basic-branching/README.md) - ブランチ作成への最初の一歩
+4. [ff-merge](ff-merge/README.md) - 単純なマージ
+5. [3-way-merge](3-way-merge/README.md) - 複数の分岐したブランチを含む基本的なマージ
+6. [merge-conflict](merge-conflict/README.md) - 分岐ブランチの基本的なマージ
+7. [merge-mergesort](merge-mergesort/README.md) - 実際のコードを用いたマージコンフリクト
+8. [rebase-branch](rebase-branch/README.md) - マージの代替手段としてリベースを使用
+9. [basic-revert](basic-revert/README.md) - 変更を取り消すためにリバートを使用
+10. [reset](reset/README.md) - リセットの 3 つのモードを確認してください
+11. [amend](amend/README.md) - 以前のコミットの修正
+12. [reorder-the-history](reorder-the-history/README.md) - コミットの順番が最適でなかった場合の修正
+13. [squashing](squashing/README.md) - コミットのまとめ方
+14. [rebase-interactive-autosquash](./rebase-interactive-autosquash/README.md) - autosquash を利用したリベースコマンドの使用
+15. [basic-stashing](basic-stashing/README.md) - スタッシングへの最初の一歩
+16. [ignore](ignore/README.md) - `.gitignore`ファイルの基本的な使い方および `git rm` の使用
+17. [git-tag](git-tag//README.md) - タグの使用
 
-## 課題
+### Middle
+
+Git の操作において一般的に遭遇するケースを想定した課題です。どの課題もコマンド 1 つで直せるような簡単な状況ではありません。
+コマンドを丸暗記する必要はありませんが Git でできることを理解し、必要な操作を自分で組み立てられるようにしましょう。（その過程でコマンドは自然と身につきます）
 
 ### [commit-on-wrong-branch](commit-on-wrong-branch/README.md)
 
-誤ってプッシュされていないコミットを誤ったブランチに入れてしまった場合、作業を開始する前にどのように別のブランチへ _移動_ させるか。
+誤って feature ブランチではなく master ブランチにコミットしてしまった場合にコミットを _移動_ させる方法。
 
 ### [commit-on-wrong-branch-2](commit-on-wrong-branch-2/README.md)
 
-誤ったブランチに誤ってコミットしてしまった場合の対処法に関する演習。
+誤ったブランチにコミットしてしまった場合の対処法。
 
 ### [save-my-commit](save-my-commit/README.md)
 
-誤ってコミットを削除してしまった場合これを救出する方法を試してみてください。reflog を使用します。
+誤ってコミットを削除してしまった場合に復元する方法。
 
 ### [advanced-rebase-interactive](advanced-rebase-interactive/README.md)
 
 インタラクティブリベースを用いた高度な操作。
 
-## 発展課題
+### Advance
+
+これらの課題は遭遇することが稀なケースや高度な Git の操作方法です。これらの操作はできなくとも実務で困ることはまずありません。
+Git の深淵に触れてみたい場合は是非チャレンジしてみてください。
 
 ### [reverted-merge](reverted-merge/README.md)
 
